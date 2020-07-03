@@ -4,24 +4,24 @@ namespace Class_Lock
 {
     class DP : Terraria.GameContent.UI.Elements.UIPanel
     {
-        float f0, f1;
-        public static bool f2;
-        protected override void DrawSelf(Microsoft.Xna.Framework.Graphics.SpriteBatch a0)
+        float x, y;
+        public static bool md;
+        protected override void DrawSelf(Microsoft.Xna.Framework.Graphics.SpriteBatch sb)
         {
-            if (f2)
+            if (md)
             {
-                Left.Set(mouseX - f0, 0);
-                Top.Set(mouseY - f1, 0);
+                Left.Set(mouseX - x, 0);
+                Top.Set(mouseY - y, 0);
             }
-            base.DrawSelf(a0);
+            base.DrawSelf(sb);
             if (IsMouseHovering) LocalPlayer.mouseInterface = true;
         }
-        public override void MouseDown(UIMouseEvent a0)
+        public override void MouseDown(UIMouseEvent _)
         {
-            if (!TFUISB.f0) f2 = true;
-            f0 = mouseX - Left.Pixels;
-            f1 = mouseY - Top.Pixels;
+            if (!TFUISB.imh) md = true;
+            x = mouseX - Left.Pixels;
+            y = mouseY - Top.Pixels;
         }
-        public override void MouseUp(UIMouseEvent a0) => f2 = false;
+        public override void MouseUp(UIMouseEvent _) => md = false;
     }
 }

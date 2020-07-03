@@ -5,15 +5,15 @@ namespace Class_Lock
 {
     class ModPlayer0 : Terraria.ModLoader.ModPlayer
     {
-        public bool f0;
-        public List<int> f1 = new List<int>();
-        public override bool? CanHitNPC(Item a0, NPC a1) => f0 ? (bool?)null : false;
-        public override bool? CanHitNPCWithProj(Projectile a0, NPC a1) => f1.Contains(a0.type) ? (bool?)null : false;
-        public override TagCompound Save() => new TagCompound { ["f0"] = f0, ["f1"] = f1 };
-        public override void Load(TagCompound a0)
+        public bool melee;
+        public List<int> idl = new List<int>();
+        public override bool? CanHitNPC(Item _, NPC a) => melee ? (bool?)null : false;
+        public override bool? CanHitNPCWithProj(Projectile pj, NPC _) => idl.Contains(pj.type) ? (bool?)null : false;
+        public override TagCompound Save() => new TagCompound { ["melee"] = melee, ["idl"] = idl };
+        public override void Load(TagCompound tc)
         {
-            f0 = a0.GetBool("f0");
-            f1 = a0.Get<List<int>>("f1");
+            idl = tc.Get<List<int>>("idl");
+            melee = tc.GetBool("melee");
         }
     }
 }

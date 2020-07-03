@@ -2,4 +2,4 @@ author = Graumen
 displayName = Class Lock
 homepage = https://forums.terraria.org/index.php?threads/class-lock.94851/
 includeSource = true
-version = 1.0.0.2
+version = 1.0.0.3

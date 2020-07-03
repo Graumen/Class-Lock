@@ -2,14 +2,14 @@
 {
     class TFUISB : Terraria.GameContent.UI.Elements.FixedUIScrollbar
     {
-        public static bool f0;
-        protected override void DrawSelf(Microsoft.Xna.Framework.Graphics.SpriteBatch a0)
+        public static bool imh;
+        protected override void DrawSelf(Microsoft.Xna.Framework.Graphics.SpriteBatch sb)
         {
-            base.DrawSelf(a0);
-            f0 = IsMouseHovering;
+            base.DrawSelf(sb);
             if (IsMouseHovering) Terraria.Main.LocalPlayer.mouseInterface = true;
+            imh = IsMouseHovering;
         }
-        public TFUISB(Terraria.UI.UserInterface a0) : base(a0)
+        public TFUISB(Terraria.UI.UserInterface ui) : base(ui)
         {
         }
     }

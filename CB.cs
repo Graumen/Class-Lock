@@ -7,34 +7,34 @@ namespace Class_Lock
 {
     class CB : UIPanel
     {
-        protected override void DrawSelf(Microsoft.Xna.Framework.Graphics.SpriteBatch a0)
+        protected override void DrawSelf(Microsoft.Xna.Framework.Graphics.SpriteBatch sb)
         {
             BackgroundColor = ContainsPoint(MouseScreen) ? new Color(88, 114, 212, 255) : new Color(44, 57, 106, 255);
-            base.DrawSelf(a0);
+            base.DrawSelf(sb);
             Height.Set(35, 0);
             if (ContainsPoint(MouseScreen)) LocalPlayer.mouseInterface = true;
-            Terraria.Utils.DrawBorderString(a0, "Confirm", new Vector2((UI.f3.Max() - 11) / 2 + GetDimensions().X, 7 + GetDimensions().Y), Color.White);
-            Width.Set(53 + UI.f3.Max(), 0);
+            Terraria.Utils.DrawBorderString(sb, "Confirm", new Vector2((UI.fl.Max() - 11) / 2 + GetDimensions().X, 7 + GetDimensions().Y), Color.White);
+            Width.Set(53 + UI.fl.Max(), 0);
         }
-        public override void DoubleClick(UIMouseEvent a0)
+        public override void DoubleClick(UIMouseEvent evt)
         {
-            var f0 = LocalPlayer.GetModPlayer<ModPlayer0>();
-            var f1 = new Terraria.Projectile();
+            var lp = LocalPlayer.GetModPlayer<ModPlayer0>();
+            var pj = new Terraria.Projectile();
 
-            foreach (var c in UI.f2)
+            foreach (var Class in UI.cl)
             {
-                for (int f2 = 1; f2 < Terraria.ModLoader.ProjectileLoader.ProjectileCount; f2++)
+                for (int id = 1; id < Terraria.ModLoader.ProjectileLoader.ProjectileCount; id++)
                 {
-                    if (c.f0.All(_ => _(f1)) && c.f1)
+                    if (Class.pl.All(_ => _(pj)) && Class.selected)
                     {
-                        f0.f1.Add(f1.type);
-                        if ("Melee" == c.f2) f0.f0 = true;
+                        lp.idl.Add(pj.type);
+                        if ("Melee" == Class.name) lp.melee = true;
                     }
-                    f1.SetDefaults(f2);
+                    pj.SetDefaults(id);
                 }
             }
         }
-        public override void MouseDown(UIMouseEvent a0) => PlaySound(12);
-        public override void MouseOver(UIMouseEvent a0) => PlaySound(12);
+        public override void MouseDown(UIMouseEvent _) => PlaySound(12);
+        public override void MouseOver(UIMouseEvent _) => PlaySound(12);
     }
 }

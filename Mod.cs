@@ -7,17 +7,17 @@ namespace Class_Lock
 {
     class Mod0 : Terraria.ModLoader.Mod
     {
-        public static UserInterface f0 = new UserInterface();
-        public override object Call(params object[] a0)
+        public static UserInterface ui = new UserInterface();
+        public override object Call(params object[] _)
         {
-            for (int f0 = 2; 7 > f0; f0++) if (a0[f0] != null) UI.f2[f0 - 2].f0.Add(a0[f0] as Predicate<Projectile>);
-            UI.f2.Add(new Class(a0[0] as Predicate<Projectile>, a0[1] as string));
+            for (int id = 2; 7 > id; id++) if (_[id] != null) UI.cl[id - 2].pl.Add(_[id] as Predicate<Projectile>);
+            UI.cl.Add(new Class(_[0] as Predicate<Projectile>, _[1] as string));
             return "";
         }
         public override void Load()
         {
-            UI.f2.Clear();
-            UI.f2.AddRange(new Class[]
+            UI.cl.Clear();
+            UI.cl.AddRange(new Class[]
             {
                 new Class(_ => !(_.magic || _.melee || _.ranged || _.thrown), "Summon"),
                 new Class(_ => _.magic, "Magic"),
@@ -25,22 +25,21 @@ namespace Class_Lock
                 new Class(_ => _.ranged, "Ranged"),
                 new Class(_ => _.thrown, "Throwing")
             });
-            f0.SetState(new UI());
-            UI.f4.Clear();
+            ui.SetState(new UI());
         }
-        public override void ModifyInterfaceLayers(System.Collections.Generic.List<GameInterfaceLayer> a0)
+        public override void ModifyInterfaceLayers(System.Collections.Generic.List<GameInterfaceLayer> il)
         {
-            int f0 = a0.FindIndex(_ => _.Name == "Vanilla: Mouse Text");
+            int mti = il.FindIndex(_ => _.Name == "Vanilla: Mouse Text");
 
-            if (-1 < f0)
+            if (-1 < mti)
             {
-                a0.Insert(f0, new LegacyGameInterfaceLayer("", () =>
+                il.Insert(mti, new LegacyGameInterfaceLayer("", () =>
                 {
-                    if (!Main.LocalPlayer.GetModPlayer<ModPlayer0>().f1.Any()) Mod0.f0.Draw(Main.spriteBatch, new GameTime());
+                    if (!Main.LocalPlayer.GetModPlayer<ModPlayer0>().idl.Any()) ui.Draw(Main.spriteBatch, new GameTime());
                     return true;
                 }, InterfaceScaleType.UI));
             }
         }
-        public override void UpdateUI(GameTime a0) => f0.Update(a0);
+        public override void UpdateUI(GameTime gt) => ui.Update(gt);
     }
 }

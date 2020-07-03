@@ -7,52 +7,52 @@ namespace Class_Lock
 {
     class UI : Terraria.UI.UIState
     {
-        CB f0 = new CB();
-        DP f1 = new DP();
-        public static List<Class> f2 = new List<Class>();
-        public static List<float> f3 = new List<float>() { 25 };
-        public static UIList f4 = new UIList();
-        TFUISB f5 = new TFUISB(Mod0.f0);
-        UIPanel f6 = new UIPanel();
+        CB cb = new CB();
+        DP dp = new DP();
+        public static List<Class> cl = new List<Class>();
+        public static List<float> fl = new List<float>() { 25 };
+        public static UIList uil = new UIList();
+        TFUISB tfuisb = new TFUISB(Mod0.ui);
+        UIPanel uip = new UIPanel();
         public override void OnInitialize()
         {
-            Append(f1);
-            f0.Left.Set(7, 0);
-            f1.Append(f0);
-            f1.Append(f6);
-            f1.BackgroundColor = new Color(0, 128, 255, 255);
-            f1.Left.Set(500, 0);
-            f1.SetPadding(0);
-            f1.Top.Set(200, 0);
-            f4.Left.Set(7, 0);
-            f4.SetPadding(0);
-            f4.SetScrollbar(f5);
-            f4.Top.Set(2, 0);
-            f5.Top.Set(13, 0);
-            f6.Append(f4);
-            f6.Append(f5);
-            f6.BackgroundColor = new Color(0, 64, 128, 255);
-            f6.Left.Set(7, 0);
-            f6.SetPadding(0);
-            f6.Top.Set(7, 0);
+            Append(dp);
+            cb.Left.Set(7, 0);
+            dp.Append(cb);
+            dp.Append(uip);
+            dp.BackgroundColor = new Color(0, 128, 255, 255);
+            dp.Left.Set(500, 0);
+            dp.SetPadding(0);
+            dp.Top.Set(200, 0);
+            tfuisb.Top.Set(13, 0);
+            uil.Left.Set(7, 0);
+            uil.SetPadding(0);
+            uil.SetScrollbar(tfuisb);
+            uil.Top.Set(2, 0);
+            uip.Append(tfuisb);
+            uip.Append(uil);
+            uip.BackgroundColor = new Color(0, 64, 128, 255);
+            uip.Left.Set(7, 0);
+            uip.SetPadding(0);
+            uip.Top.Set(7, 0);
         }
-        protected override void DrawSelf(Microsoft.Xna.Framework.Graphics.SpriteBatch a0)
+        protected override void DrawSelf(Microsoft.Xna.Framework.Graphics.SpriteBatch sb)
         {
-            if (!f4._items.Any())
+            if (!uil._items.Any())
             {
-                f4.Add(new UIPanel());
-                f4.AddRange(f2.OrderBy(_ => !_.f1).ThenBy(_ => _.f2));
+                uil.Add(new UIPanel());
+                uil.AddRange(cl.OrderBy(_ => !_.selected).ThenBy(_ => _.name));
             }
-            f0.Top.Set(Min(21 + f2.Count * 40, 341), 0);
-            foreach (var f0 in f2) f3.Add(Terraria.Main.fontMouseText.MeasureString(f0.f2).X);
-            f6.Height.Set(Min(329, 9 + f2.Count * 40), 0);
-            f6.Width.Set(53 + f3.Max(), 0);
-            f1.Height.Set(Min(383, 63 + f2.Count * 40), 0);
-            f1.Width.Set(67 + f3.Max(), 0);
-            f5.Height.Set(Min(303, f2.Count * 40 - 17), 0);
-            f5.Left.Set(26 + f3.Max(), 0);
-            f4.Height.Set(Min(325, 5 + f2.Count * 40), 0);
-            f4.Width.Set(14 + f3.Max(), 0);
+            cb.Top.Set(Min(21 + cl.Count * 40, 341), 0);
+            dp.Height.Set(Min(383, 63 + cl.Count * 40), 0);
+            dp.Width.Set(67 + fl.Max(), 0);
+            foreach (var _ in cl) fl.Add(Terraria.Main.fontMouseText.MeasureString(_.name).X);
+            tfuisb.Height.Set(Min(303, cl.Count * 40 - 17), 0);
+            tfuisb.Left.Set(26 + fl.Max(), 0);
+            uil.Height.Set(Min(325, 5 + cl.Count * 40), 0);
+            uil.Width.Set(14 + fl.Max(), 0);
+            uip.Height.Set(Min(329, 9 + cl.Count * 40), 0);
+            uip.Width.Set(53 + fl.Max(), 0);
         }
     }
 }
