@@ -40,6 +40,9 @@ namespace Class_Lock
                 }, InterfaceScaleType.UI));
             }
         }
-        public override void UpdateUI(GameTime gt) => ui.Update(gt);
+        public override void UpdateUI(GameTime gt)
+        {
+            if (!Main.LocalPlayer.GetModPlayer<ModPlayer0>().idl.Any()) ui?.Update(gt);
+        }
     }
 }

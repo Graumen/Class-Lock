@@ -27,8 +27,8 @@ namespace Class_Lock
                 {
                     if (Class.pl.All(_ => _(pj)) && Class.selected)
                     {
-                        lp.idl.Add(pj.type);
                         if ("Melee" == Class.name) lp.melee = true;
+                        lp.idl.Add(pj.type);
                     }
                     pj.SetDefaults(id);
                 }
