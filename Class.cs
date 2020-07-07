@@ -20,12 +20,6 @@ namespace Class_Lock
             if (ContainsPoint(Main.MouseScreen)) Main.LocalPlayer.mouseInterface = true;
             Utils.DrawBorderString(sb, name, new Vector2(7 + GetDimensions().X, 7 + GetDimensions().Y), Color.White);
         }
-        public override void Recalculate()
-        {
-            base.Recalculate();
-            Height.Set(35, 0);
-            Width.Set(14 + UI.fl.Max(), 0);
-        }
         public Class(Predicate<Projectile> pp, string Name)
         {
             name = Name;
@@ -37,6 +31,12 @@ namespace Class_Lock
             Main.PlaySound(12);
             selected = !selected;
             UI.uil.Clear();
+        }
+        public override void Recalculate()
+        {
+            base.Recalculate();
+            Height.Set(35, 0);
+            Width.Set(14 + UI.fl.Max(), 0);
         }
         public override void MouseOver(UIMouseEvent _) => Main.PlaySound(12);
     }

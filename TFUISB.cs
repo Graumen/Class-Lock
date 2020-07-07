@@ -9,8 +9,6 @@
             if (IsMouseHovering) Terraria.Main.LocalPlayer.mouseInterface = true;
             imh = IsMouseHovering;
         }
-        public TFUISB(Terraria.UI.UserInterface ui) : base(ui)
-        {
-        }
+        public TFUISB(Terraria.UI.UserInterface ui) : base(ui) { }
     }
 }
