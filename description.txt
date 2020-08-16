@@ -1,2 +1,0 @@
-Class Lock lets you restrict yourself to any Combination of Damage Types. When playing with a non class-locked Character, you are presented with a List of available Damage Types. After choosing your desired Damage Types, doubleclick the Confirm Button. You will only be able to hit Enemies with Weapons of these Damage Types with that Character permanently.
-Class Lock does not support custom Damage Types natively, however, it does have Cross Mod Support. For Information on how to add a custom Damage Type/Subclass etc. to Class Lock, visit the Homepage.
