@@ -24,7 +24,7 @@ namespace Class_Lock
             UI.Panel(new Color(4, 97, 213), Color.Black, new Rectangle((int)GetDimensions().X, (int)GetDimensions().Y, (int)Width.Pixels, 209), sb);
             sb.End();
             sb.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.AnisotropicClamp, DepthStencilState.None, new RasterizerState { CullMode = CullMode.None, ScissorTestEnable = true }, null, UIScaleMatrix);
-            sb.GraphicsDevice.ScissorRectangle = new Rectangle((int)pos.X, (int)pos.Y, (int)dim.X, (int)dim.Y);
+            sb.GraphicsDevice.ScissorRectangle = Rectangle.Intersect(new Rectangle((int)pos.X, (int)pos.Y, (int)dim.X, (int)dim.Y), sr);
             foreach (var _ in cl.OrderBy(_ => !_.chosen).ThenBy(_ => _.name))
             {
                 _.Draw(sb);
