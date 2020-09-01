@@ -18,8 +18,8 @@ namespace Class_Lock
             Height.Set(263, 0);
             if (ContainsPoint(MouseScreen)) LocalPlayer.mouseInterface = true;
             UI.Panel(new Color(0, 128, 255), Color.Black, new Rectangle((int)GetDimensions().X, (int)GetDimensions().Y, (int)Width.Pixels, 263), sb);
-            UI.Panel(new Color(4, 97, 213), Color.Black, new Rectangle((int)GetDimensions().X - 23 + (int)Width.Pixels, (int)GetDimensions().Y + 5, 16, 213), sb);
-            Width.Set(System.Math.Max(136, 63 + TUIL.il.Max()), 0);
+            if (5 < TUIL.cl.Count) UI.Panel(new Color(4, 97, 213), Color.Black, new Rectangle((int)GetDimensions().X - 23 + (int)Width.Pixels, (int)GetDimensions().Y + 5, 16, 213), sb);
+            Width.Set((5 < TUIL.cl.Count ? 63 : 42) + TUIL.il.Max(), 0);
         }
         public override void MouseDown(UIMouseEvent _)
         {

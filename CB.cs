@@ -14,7 +14,7 @@ namespace Class_Lock
             Top.Set(221, 0);
             UI.Panel(ContainsPoint(MouseScreen) ? new Color(121, 155, 255) : new Color(73, 96, 234), Color.Black, new Rectangle((int)GetDimensions().X, (int)GetDimensions().Y, (int)Width.Pixels, 35), sb);
             Terraria.Utils.DrawBorderString(sb, "Confirm", new Vector2((Width.Pixels - 64) / 2 + GetDimensions().X, 7 + GetDimensions().Y), Color.White);
-            Width.Set(System.Math.Max(122, 49 + TUIL.il.Max()), 0);
+            Width.Set((5 < TUIL.cl.Count ? 49 : 28) + TUIL.il.Max(), 0);
         }
         public override void DoubleClick(UIMouseEvent evt)
         {
